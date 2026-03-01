@@ -1,0 +1,45 @@
+========================================
+Livox雷达驱动快速配置
+========================================
+
+最简单的方法：运行自动配置脚本
+
+    cd /home/bingda
+    ./setup_livox_driver.sh
+
+脚本会自动完成所有配置步骤。
+
+========================================
+手动配置（如果脚本失败）
+========================================
+
+1. 安装依赖
+   sudo apt update
+   sudo apt install -y cmake libpcl-dev libapr1-dev ros-noetic-pcl-ros
+
+2. 编译安装Livox-SDK2
+   cd /home/bingda/Livox-SDK2
+   mkdir -p build && cd build
+   cmake .. && make -j$(nproc) && sudo make install
+
+3. 配置IP地址
+   编辑: /home/bingda/ws_livox/src/livox_ros_driver2/config/MID360_config.json
+   确保 host_ip 与主机IP匹配
+
+4. 编译ROS工作空间
+   cd /home/bingda/ws_livox
+   source /opt/ros/noetic/setup.bash
+   catkin_make -DROS_EDITION=ROS1
+   source devel/setup.bash
+
+5. 添加到环境变量
+   echo "source /home/bingda/ws_livox/devel/setup.bash" >> ~/.bashrc
+   source ~/.bashrc
+
+6. 启动驱动
+   roslaunch livox_ros_driver2 msg_MID360.launch
+
+========================================
+详细说明请查看: 配置说明.md
+========================================
+
