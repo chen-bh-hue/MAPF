@@ -26,14 +26,14 @@
 # 目录：取消注释即同步该目录及子目录
 # 只写 !目录名/ 即可，Git 会跟踪其中文件
 # --------------------------------------------
+!catkin_ws/
+!ros2_ws/
+!ws_livox/
+!Livox-SDK2/
 # !Documents/
-# !Desktop/
-# !catkin_ws/
-# !ros2_ws/
+!Desktop/
 # !copyyy/
-# !cartographer_ws/
-# !ws_livox/
-# !Livox-SDK2/
+!cartographer_ws/
 # !ncnn/
 # !opencv-4.6.0/
 # !rosdep-fix/
@@ -66,3 +66,9 @@
 .Xauthority
 .wget-hsts
 .sudo_as_admin_successful
+
+# ROS/工作空间编译产物（不推送到 GitHub）
+build/
+devel/
+install/
+log/

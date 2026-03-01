@@ -20,15 +20,15 @@ git add .
 # 5. 首次提交
 git commit -m "Initial commit"
 
-# 6. 推送到 GitHub（主分支名可能是 main 或 master）
-git branch -M main
-git push -u origin main
+# 6. 推送到 GitHub（使用分支 new-nano-6）
+git checkout -b new-nano-6
+git push -u origin new-nano-6
 ```
 
 如果 GitHub 仓库已存在且不为空，可能需要先拉取再推送：
 ```bash
-git pull origin main --allow-unrelated-histories
-git push -u origin main
+git pull origin new-nano-6 --allow-unrelated-histories
+git push -u origin new-nano-6
 ```
 
 ---
@@ -60,13 +60,13 @@ git remote add origin https://github.com/你的用户名/你的仓库名.git
 - `# !catkin_ws/` → `!catkin_ws/`
 保存后再执行 `git add .` 和提交即可。
 
-### 步骤 4：添加、提交、推送
+### 步骤 4：添加、提交、推送到分支 new-nano-6
 ```bash
 git add .
 git status   # 确认没有误加入敏感文件
 git commit -m "Initial commit"
-git branch -M main
-git push -u origin main
+git checkout -b new-nano-6
+git push -u origin new-nano-6
 ```
 
 ### 认证方式
@@ -75,9 +75,10 @@ git push -u origin main
 
 ---
 
-## 后续日常同步
+## 后续日常同步（分支 new-nano-6）
 ```bash
+git checkout new-nano-6   # 若当前不在该分支
 git add .
 git commit -m "描述本次修改"
-git push
+git push origin new-nano-6
 ```
