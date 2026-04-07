@@ -91,6 +91,7 @@ to_ros2() {
     unset ROS_MASTER_URI
     echo -e "\033[32mNow Using ROS2 Foxy!\033[0m"
     source /opt/ros/foxy/setup.bash
+    export ROS_DOMAIN_ID=189
 }
 
 # 默认使用 ROS2
@@ -99,3 +100,6 @@ to_ros2
 export BASE_TYPE=NanoOmni
 export CAMERA_TYPE=astrapro
 export LIDAR_TYPE=ydlidar
+
+sudo modprobe spidev
+sudo ip addr add 192.168.1.100/24 dev eth0
